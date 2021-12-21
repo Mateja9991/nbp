@@ -14,7 +14,10 @@ const {
 	REDIS_DB,
 } = require('./redis.config');
 
+const { PORT } = require('./server');
+
 module.exports = {
+	PORT,
 	NEO4J_ENDPOINT,
 	NEO4J_USERNAME,
 	NEO4J_PASSWORD,

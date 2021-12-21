@@ -1,7 +1,7 @@
 const neo4j = require('neo4j-driver');
 const parser = require('parse-neo4j');
 
-const { cacheClient } = require('../services/redis');
+const { cacheClient } = require('../db/redis');
 
 /**
  *

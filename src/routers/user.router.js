@@ -1,7 +1,16 @@
 const express = require('express');
 
 const { jwtAuthMiddleware } = require('../middleware/auth/index');
-const { createUserHandler } = require('../services/user.service');
+const {
+	registerCustomer,
+	createCustomer,
+	getAllCustomers,
+	getCurrentUser,
+	getAllUsers,
+	updateUser,
+	deleteUserById,
+	deleteCurrentUser,
+} = require('../services/user.service');
 
 const router = new express.Router();
 //
@@ -10,7 +19,19 @@ const router = new express.Router();
 
 //router.get('/napravi-notifikaciju', jwtAuthMiddleware, testNotif);
 
-router.post('/users', createUserHandler);
+router.post('/customers', registerCustomer);
+
+router.get('/users/all', getAllUsers);
+
+router.get('/customers/all', getAllCustomers);
+
+router.get('/users/me', getCurrentUser);
+
+router.patch('/users/me', updateUser);
+
+router.delete('/users/me', deleteCurrentUser);
+
+router.delete('/users/:userId', deleteUserById);
 
 //router.patch('/users/me', jwtAuthMiddleware, updateUserHandler);
 

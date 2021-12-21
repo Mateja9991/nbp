@@ -7,7 +7,7 @@ const redisConfig = {
 };
 
 const {
-	REDIS_HOST = '192.168.164.251',
+	REDIS_HOST = '172.17.61.99',
 	REDIS_PORT = 6379,
 	REDIS_PASSWORD = 'RedisPassword123?',
 	REDIS_DB = 1,

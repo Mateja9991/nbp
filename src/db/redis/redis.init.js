@@ -10,27 +10,6 @@ const {
 	REDIS_DB,
 } = require('../../constants/redis.config');
 
-const REDIS_CONFIG = {
-	host: REDIS_HOST,
-	port: REDIS_PORT,
-	db: REDIS_DB,
-	password: REDIS_PASSWORD,
-};
-
-const REDIS_CACHE_CONFIG = {
-	host: REDIS_HOST,
-	port: REDIS_PORT,
-	db: REDIS_CACHE_DB,
-	password: REDIS_PASSWORD,
-};
-
-const REDIS_QUEUE_CONFIG = {
-	host: REDIS_HOST,
-	port: REDIS_PORT,
-	db: REDIS_QUEUE_DB,
-	password: REDIS_PASSWORD,
-};
-
 const getClient = (CONFIG) => {
 	const redis = new Redis(CONFIG);
 	const redisAsync = {
@@ -44,14 +23,20 @@ const getClient = (CONFIG) => {
 		geoRadiusByMemberAsync: promisify(redis.georadiusbymember.bind(this)),
 		geoPosAsync: promisify(redis.geopos.bind(this)),
 	};
+	redis.on('connect', () => {
+		console.log('Connected with ' + CONFIG.db);
+	});
 	return {
 		redis,
 		redisAsync,
 	};
 };
-const { cacheClient, cacheClientAsync } = getClient(REDIS_CACHE_CONFIG);
-const { redisPub, redisPubAsync } = getClient(REDIS_QUEUE_CONFIG);
-const { redisSub, redisSubAsync } = getClient(REDIS_QUEUE_CONFIG);
+const { redis: cacheClient, redisAsync: cacheClientAsync } =
+	getClient(REDIS_CACHE_CONFIG);
+const { redis: redisPub, redisAsync: redisPubAsync } =
+	getClient(REDIS_QUEUE_CONFIG);
+const { redis: redisSub, redisAsync: redisSubAsync } =
+	getClient(REDIS_QUEUE_CONFIG);
 const { redis, redisAsync } = getClient(REDIS_CONFIG);
 // const getAsync = promisify(redis.get.bind(redis));
 // const setAsync = promisify(redis.set.bind(redis));

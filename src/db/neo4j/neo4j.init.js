@@ -5,10 +5,13 @@ const {
 	NEO4J_PASSWORD,
 } = require('../../constants/neo4j.config');
 
-const driver = neo4j.driver(url, neo4j.auth.basic(user, password));
+const neoDriver = neo4j.driver(
+	NEO4J_ENDPOINT,
+	neo4j.auth.basic(NEO4J_USERNAME, NEO4J_PASSWORD)
+);
 
 module.exports = {
-	driver,
+	neoDriver,
 };
 
 //const stringify = require('util').inspect;

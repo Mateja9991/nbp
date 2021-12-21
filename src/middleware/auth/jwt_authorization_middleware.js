@@ -1,4 +1,4 @@
-const jwt = null; //require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const jwtAuthMiddleware = async (req, res, next) => {
 	try {
@@ -8,10 +8,13 @@ const jwtAuthMiddleware = async (req, res, next) => {
 		// if (!user) {
 		// 	res.status(404);
 		// 	throw new Error('User not found');
-		// }
-
-		req.token = token;
-
+		//}
+		const user = await UserRepository.getById(id);
+		if (user) {
+			req.user = user;
+		} else {
+			throw new Error();
+		}
 		next();
 	} catch (e) {
 		next(e);

@@ -4,7 +4,7 @@ const neo4jConfig = {
 	url: 'neo4j://192.168.164.251:7687',
 };
 const {
-	NEO4J_ENDPOINT = 'neo4j://192.168.164.251:7687',
+	NEO4J_ENDPOINT = 'neo4j://172.17.61.99:7687',
 	NEO4J_USERNAME = 'neo4j',
 	NEO4J_PASSWORD = 'Neo4jPassword123?',
 } = process.env;

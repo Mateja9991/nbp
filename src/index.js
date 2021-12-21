@@ -3,8 +3,6 @@ const express = require('express');
 const { PORT } = require('./constants/index');
 //require('../utils').initializeEnvitonment();
 
-require('./db/mongoose');
-
 const router = require('./routers');
 
 const app = express();
