@@ -1,5 +1,9 @@
 const neo4j = require('neo4j-driver');
-const { url, user, password } = require('../../constants/neo4j.config');
+const {
+	NEO4J_ENDPOINT,
+	NEO4J_USERNAME,
+	NEO4J_PASSWORD,
+} = require('../../constants/neo4j.config');
 
 const driver = neo4j.driver(url, neo4j.auth.basic(user, password));
 

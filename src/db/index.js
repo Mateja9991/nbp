@@ -1,12 +1,13 @@
-const { redis, getAsync, setAsync } = require('./redis/index');
+const { redis, redisAsync } = require('./redis/index');
 
 const { neoDriver } = require('./neo4j/index');
 
-const {} = require('./cassandra/index');
+const { driverSessionPlugin } = require('../plugins/driver_session');
+
+const mainSession = driverSessionPlugin(driver);
 
 module.exports = {
 	redis,
-	getAsync,
-	setAsync,
-	neoDriver,
+	redisAsync,
+	mainSession,
 };

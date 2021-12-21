@@ -1,7 +1,28 @@
-const { MODEL_PROPERTIES } = require('./model_properties');
-const { PORT } = require('./server');
+const {
+	NEO4J_ENDPOINT,
+	NEO4J_USERNAME,
+	NEO4J_PASSWORD,
+} = require('./neo4j.config');
+
+const {
+	REDIS_CONFIG,
+	REDIS_CACHE_CONFIG,
+	REDIS_QUEUE_CONFIG,
+	REDIS_HOST,
+	REDIS_PORT,
+	REDIS_PASSWORD,
+	REDIS_DB,
+} = require('./redis.config');
 
 module.exports = {
-	MODEL_PROPERTIES,
-	PORT,
+	NEO4J_ENDPOINT,
+	NEO4J_USERNAME,
+	NEO4J_PASSWORD,
+	REDIS_CONFIG,
+	REDIS_CACHE_CONFIG,
+	REDIS_QUEUE_CONFIG,
+	REDIS_HOST,
+	REDIS_PORT,
+	REDIS_PASSWORD,
+	REDIS_DB,
 };
