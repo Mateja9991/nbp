@@ -1,0 +1,51 @@
+import {
+	addFoodToRestaurant,
+	getFoodFromMenu,
+	getAvailableFoodTypes,
+	updateRestaurantsFood,
+	deleteRestaurantsFood,
+	getFoodByID,
+} from './food';
+import {
+	registerInstance,
+	getRestaurantInstances,
+	updateInstance,
+	getInstanceOrders,
+	getInstancePendingOrders,
+	getInstanceMenu,
+	deleteInstanceById,
+	getInstanceCurrentOrders,
+} from './instance';
+import { addFoodToPendingOrder, delFoodFromPendingOrder } from './order';
+import {
+	getAllRestaurants,
+	getRestaurantOrders,
+	updateRestaurant,
+	rateRestaurant,
+	searchRestaurant,
+	getReviews,
+} from './restaurant';
+export {
+	registerInstance,
+	getRestaurantInstances,
+	updateInstance,
+	getAllRestaurants,
+	getInstanceOrders,
+	getInstancePendingOrders,
+	getRestaurantOrders,
+	getAvailableFoodTypes,
+	getInstanceMenu,
+	addFoodToRestaurant,
+	getFoodFromMenu,
+	updateRestaurantsFood,
+	deleteRestaurantsFood,
+	searchRestaurant,
+	deleteInstanceById,
+	addFoodToPendingOrder,
+	delFoodFromPendingOrder,
+	updateRestaurant,
+	getInstanceCurrentOrders,
+	getFoodByID,
+	rateRestaurant,
+	getReviews,
+};
